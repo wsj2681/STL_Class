@@ -1,35 +1,53 @@
-#include <iostream>
-#include <fstream>
-#include <iomanip>
-#include <algorithm>
+#include <iostream> 
 #include <string>
-#include "save.h"
-
+#include <random>
+#include <fstream>
 using namespace std;
 
-//2주 2일차 과제2번
+int gid{ 0 };
 
-template<class T, int size>
-class Array {
-	T* data{ nullptr };
+default_random_engine dre;
+uniform_int_distribution<int> uidAge(1, 12);
+uniform_int_distribution<int> uidName('a', 'z');
+uniform_int_distribution<int> uidNameLen(3, 15);
+
+class Dog {
+	string name;
+	int age;
+	int id;
+
 public:
-	explicit Array() :data{ new T[size] } {}
-	~Array() { delete[] data; }
-	Array(const Array&) = delete;
+	Dog() : id{ ++gid } {
+		int len = uidNameLen(dre);
+		
+		for (int i = 0; i < len; ++i)
+			name += uidName(dre);
 
-	Array& operator=(const Array&) = delete;
+		age = uidAge(dre);
+	}
+	
+	Dog(string name, int age) : name{ name }, age{ age }, id(++gid) {
+	}
+	string getter()const {
+		return name;
+	}
 
-	T operator[](int idx) const { return data[idx]; }
-	T& operator[](int idx) { return data[idx]; }
+	friend ostream& operator<<(ostream&, const Dog&);
 };
+ostream& operator<<(ostream& os, const Dog& dog) {
+	os << dog.name << dog.age << dog.id << endl;
+	return os;
+}
+int main() {
+	ifstream in("Dog만마리", ios::binary);
 
-int main()
-{
-	Array<string, 10> a; // string 10개를 담을 수 있는 자료구조 a
+	Dog* data = new Dog[1'0000];
 
-	for (int i = 0; i < 10; ++i)
-		a[i] = "string"s + to_string(i); // a에 쓰기
+	in.read((char*)data, sizeof(Dog) * 1'0000);
 
-	for (int i = 0; i < 10; ++i)
-		cout << a[i] << endl; // a에서 읽기
+	sort(data, data + 1'0000);
+
+	for (int i = 0; i < 1'0000; ++i) {
+		cout << data[i] << endl;
+	}
 }

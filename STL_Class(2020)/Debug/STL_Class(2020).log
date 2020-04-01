@@ -1,2 +1,29 @@
 ﻿  main.cpp
-  STL_Class(2020).vcxproj -> C:\Users\wsj26\Desktop\STL_Class\STL_Class(2020)\Debug\STL_Class(2020).exe
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3416,85): error C2672: 'operator __surrogate_func': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3480): message : 컴파일되는 함수 템플릿 인스턴스화 'std::pair<Dog *,Dog *> std::_Partition_by_median_guess_unchecked<Dog*,std::less<void>>(Dog *,Dog *,std::less<void>)'에 대한 참조를 확인하세요.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3506): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::_Sort_unchecked<Dog*,std::less<void>>(Dog *,Dog *,int,std::less<void>)'에 대한 참조를 확인하세요.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3511): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::sort<Dog*,std::less<void>>(Dog *const ,Dog *const ,std::less<void>)'에 대한 참조를 확인하세요.
+C:\Users\wsj26\Desktop\STL_Class\STL_Class(2020)\main.cpp(48): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::sort<Dog*>(Dog *const ,Dog *const )'에 대한 참조를 확인하세요.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3416,1): error C2893: 함수 템플릿 'unknown-type std::less<void>::operator ()(_Ty1 &&,_Ty2 &&) noexcept(<expr>) const'을(를) 특수화하지 못했습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\xstddef(239): message : 'std::less<void>::operator ()' 선언을 참조하십시오.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3416,1): message : 다음 템플릿 인수 사용:
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3416,1): message : '_Ty1=Dog &'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3416,1): message : '_Ty2=Dog &'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3420,76): error C2672: 'operator __surrogate_func': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3420,1): error C2893: 함수 템플릿 'unknown-type std::less<void>::operator ()(_Ty1 &&,_Ty2 &&) noexcept(<expr>) const'을(를) 특수화하지 못했습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\xstddef(239): message : 'std::less<void>::operator ()' 선언을 참조하십시오.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3420,1): message : 다음 템플릿 인수 사용:
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3420,1): message : '_Ty1=Dog &'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3420,1): message : '_Ty2=Dog &'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3430,24): error C2672: 'operator __surrogate_func': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3430,1): error C2893: 함수 템플릿 'unknown-type std::less<void>::operator ()(_Ty1 &&,_Ty2 &&) noexcept(<expr>) const'을(를) 특수화하지 못했습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\xstddef(239): message : 'std::less<void>::operator ()' 선언을 참조하십시오.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3430,1): message : 다음 템플릿 인수 사용:
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3430,1): message : '_Ty1=Dog &'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3430,1): message : '_Ty2=Dog &'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3442,24): error C2672: 'operator __surrogate_func': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3442,1): error C2893: 함수 템플릿 'unknown-type std::less<void>::operator ()(_Ty1 &&,_Ty2 &&) noexcept(<expr>) const'을(를) 특수화하지 못했습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\xstddef(239): message : 'std::less<void>::operator ()' 선언을 참조하십시오.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3442,1): message : 다음 템플릿 인수 사용:
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3442,1): message : '_Ty1=Dog &'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3442,1): message : '_Ty2=Dog &'
