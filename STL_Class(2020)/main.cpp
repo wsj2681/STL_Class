@@ -1,53 +1,51 @@
 #include <iostream> 
 #include <string>
 #include <random>
+#include <algorithm>
 #include <fstream>
+
 using namespace std;
 
-int gid{ 0 };
-
-default_random_engine dre;
-uniform_int_distribution<int> uidAge(1, 12);
-uniform_int_distribution<int> uidName('a', 'z');
-uniform_int_distribution<int> uidNameLen(3, 15);
-
 class Dog {
-	string name;
-	int age;
-	int id;
-
+	string name; // 이름 - 15글자까지만 허용
+	int age; // 나이
+	int id; // 생성 시 결정되는 고유의 숫자로 된 id
 public:
-	Dog() : id{ ++gid } {
-		int len = uidNameLen(dre);
-		
-		for (int i = 0; i < len; ++i)
-			name += uidName(dre);
+	Dog() {
+		name = { NULL };
+		age = 0;
+		id = 0;
+	}
 
-		age = uidAge(dre);
+	Dog(string name, int age, int id) : name{ name }, age{ age }, id(id) {
 	}
-	
-	Dog(string name, int age) : name{ name }, age{ age }, id(++gid) {
+
+	string getname() {
+		return this->name;
 	}
-	string getter()const {
-		return name;
+	operator <(const Dog& a, const Dog& b) {
+		if(a.)
 	}
 
 	friend ostream& operator<<(ostream&, const Dog&);
 };
+
 ostream& operator<<(ostream& os, const Dog& dog) {
-	os << dog.name << dog.age << dog.id << endl;
+	os << dog.name << ' ' << dog.age << ' ' << dog.id;
 	return os;
 }
+
 int main() {
 	ifstream in("Dog만마리", ios::binary);
 
-	Dog* data = new Dog[1'0000];
+	Dog data[10000];
 
-	in.read((char*)data, sizeof(Dog) * 1'0000);
+	in.read((char*)data, sizeof(Dog) * 10000);
 
-	sort(data, data + 1'0000);
+	sort(begin(data), end(data), [](Dog& a, Dog& b) {
+		return a > b;
+		});
 
-	for (int i = 0; i < 1'0000; ++i) {
-		cout << data[i] << endl;
-	}
+	for (const Dog& dog : data)
+		cout << dog << endl;
 }
