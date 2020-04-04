@@ -1,0 +1,81 @@
+3주 1일
+
+#include <iostream> 
+#include <string>
+#include <random>
+
+using namespace std;
+
+int gid{ };
+
+default_random_engine dre;
+uniform_int_distribution<int> uidAge(1, 12);
+uniform_int_distribution<int> uidName('a', 'z');
+uniform_int_distribution<int> uidNameLen(3, 15);
+
+class Dog {
+	string name; // 이름 - 15글자까지만 허용
+	int age; // 나이
+	int id; // 생성 시 결정되는 고유의 숫자로 된 id
+public:
+	Dog() : id{ ++gid } {
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i)
+			name += uidName(dre);
+		age = uidAge(dre);
+	}
+	Dog(string name, int age) : name{ name }, age{ age }, id(++gid) {
+	}
+	string getname() {
+		return this->name;
+	}
+	friend ostream& operator<<(ostream&, const Dog&);
+};
+ostream& operator<<(ostream& os, const Dog& dog)
+{
+	os << dog.name << ", " << dog.age << ", " << dog.id;
+		return os;
+}
+int main()
+{
+	Dog dogs[10000];
+
+	sort(begin(dogs), end(dogs), [](Dog& a, Dog& b) {
+		return a.getname() < b.getname();
+		});
+
+	cout << dogs[0] << endl << dogs[9999] << endl;
+}
+
+3주 2일
+
+1.
+이 코드의 문제점 이라하면 실행을 해보았을때 dogs배열안에 객체들이 제대로 소멸되지않는다는 점이다.
+다시말해 유니크 포인터가 가리키고있는 시작번지만 소멸시키고 나머지는 소멸이 되지않고있다?? 라고 본다.
+
+2.
+#include <iostream> 
+#include <memory>
+using namespace std;
+
+class Dog {
+	int n;
+public:
+	// 생성과 소멸 관찰용
+	Dog() { cout << "생성" << endl; }
+	~Dog() { cout << "소멸" << endl; }
+	void show() {
+		cout << "Dog입니다만" << endl;
+	}
+};
+
+int main()
+{
+	// 관찰이 쉽게 코드를 지역으로 나눴다
+	{
+		// 객체 한 개 - 이렇게 unique_ptr를 생성하는 것이 더 좋다
+		auto dog = make_unique<Dog>();
+	}
+	// 객체 여러 개
+	unique_ptr<Dog[]> dogs{ new Dog[3] };
+}

@@ -1,0 +1,98 @@
+2주 1일
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    ifstream in("정수1000만개.data", ios::binary);
+    ofstream out("정수1000만개정렬.data", ios::binary);
+
+    int* data = new int[10'000'000];
+
+    // 정수1000만개.data를 읽음
+    in.read((char*)data, sizeof(int) * 10'000'000);
+
+    // 읽어들인 데이터를 정렬함
+    sort(data, data + 10'000'000, [](int a, int b) {
+        return a < b;
+        });
+
+    // 데이터를 저장함
+    int n;
+    for (int i = 0; i < 10'000'000; ++i) {
+        n = data[i];
+        out.write((char*)&n, sizeof(n));
+    }
+}
+
+
+2주 2일
+1.
+
+#include <iostream>
+
+using namespace std;
+
+template<class T>
+class Array {
+	T num{ 0 };
+	int* data{ nullptr };
+public:
+	explicit Array(T n) : num{ n }, data{ new T[num] } { }
+
+	~Array() { delete[] data; }
+	Array(const Array&) = delete;
+
+	Array& operator=(const Array&) = delete;
+
+	T operator[](T idx) const { return data[idx]; }
+	T& operator[](T idx) { return data[idx]; }
+};
+
+int main() {
+	Array<int> a(10);
+
+	for (int i = 0; i < 10; ++i) {
+		a[i] = i;
+	}
+
+	for (int i = 0; i < 10; ++i) {
+		cout << a[i] << ' ';
+	}
+	cout << endl;
+
+}
+
+2.
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+template<class T, int size>
+class Array {
+	T* data{ nullptr };
+public:
+	explicit Array() :data{ new T[size] } {}
+	~Array() { delete[] data; }
+	Array(const Array&) = delete;
+
+	Array& operator=(const Array&) = delete;
+
+	T operator[](int idx) const { return data[idx]; }
+	T& operator[](int idx) { return data[idx]; }
+};
+
+int main()
+{
+	Array<string, 10> a; // string 10개를 담을 수 있는 자료구조 a
+
+	for (int i = 0; i < 10; ++i)
+		a[i] = "string"s + to_string(i); // a에 쓰기
+
+	for (int i = 0; i < 10; ++i)
+		cout << a[i] << endl; // a에서 읽기
+}
