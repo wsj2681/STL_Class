@@ -1,25 +1,18 @@
-#include <iostream> 
-#include <memory>
+#include <iostream>
+#include <vector>
 using namespace std;
-
-class Dog {
-	int n;
-public:
-	// 생성과 소멸 관찰용
-	Dog() { cout << "생성" << endl; }
-	~Dog() { cout << "소멸" << endl; }
-	void show() {
-		cout << "Dog입니다만" << endl;
-	}
-};
-
 int main()
 {
-	// 관찰이 쉽게 코드를 지역으로 나눴다
-	{
-		// 객체 한 개 - 이렇게 unique_ptr를 생성하는 것이 더 좋다
-		auto dog = make_unique<Dog>();
-	}
-	// 객체 여러 개
-	unique_ptr<Dog[]> dogs{ new Dog[3] };
+	vector<int> v{ 1, 2, 3, 4 };
+	cout << "vector v의 주소: " << &v << endl;
+	cout << "원소의 갯수: " << v.size() << endl;
+	cout << "원소가 저장된 메모리: " << v.data() << endl;
+	cout << "재할당하지 않고 담을 수 있는 갯수: " << v.capacity() << endl;
+	// 777을 추가 합니다.
+	v.push_back( 777 );
+	cout << endl << "----- 원소 추가 후 -----" << endl;
+	cout << "vector v의 주소: " << &v << endl;
+	cout << "원소의 갯수: " << v.size() << endl;
+	cout << "원소가 저장된 메모리: " << v.data() << endl;
+	cout << "재할당하지 않고 담을 수 있는 갯수: " << v.capacity() << endl;
 }
