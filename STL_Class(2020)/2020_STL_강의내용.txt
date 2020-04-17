@@ -91,3 +91,113 @@ using namespace std;
 int main() {
 	save("main.cpp");
 }
+
+
+
+****************************
+Fri Apr 17 16:16:51 2020
+****************************
+
+
+#include <iostream>
+#include <vector>
+#include <string>
+#include <iterator>
+#include <algorithm>
+#include "save.h"
+
+using namespace std;
+
+int main(){
+	vector<string> v;
+	string s;
+
+	cout << "단어를마음껏 입력하세요. 끝내려면 Ctrl+z를 입력하세요" << endl;
+
+	while (cin >> s) {
+		v.push_back(s);
+	}
+	cout << "입력 완료되었습니다" << endl;
+
+	sort(begin(v), end(v));
+
+	cout << "정렬 결과를 출력합니다." << endl;
+	for (auto&& s : v)
+		cout << s << '\t';
+	cout << endl;
+
+	save("main.cpp");
+}
+
+
+****************************
+Fri Apr 17 16:19:21 2020
+****************************
+
+
+#include <iostream>
+#include <vector>
+#include <string>
+#include <iterator>
+#include <algorithm>
+#include "save.h"
+
+using namespace std;
+
+int main(){
+	cout << "단어를마음껏 입력하세요. 끝내려면 Ctrl+z를 입력하세요" << endl;
+	
+	vector<string> v{ istream_iterator<string>(cin),istream_iterator<string>() };
+	sort(begin(v), end(v));
+	copy(begin(v), end(v), ostream_iterator<string>(cout, "\t"));
+
+	save("main.cpp");
+}
+
+
+****************************
+Fri Apr 17 16:25:58 2020
+****************************
+
+
+#include <iostream>
+#include "String.h"
+#include "save.h"
+
+using namespace std;
+
+String g{ "COVID-19" };
+
+int main(){
+
+	String s{ "COVID-19" };
+
+	int n{ 2020 };
+
+	cout << "지역변수 n의 번지 - " << &n << endl;//n은 STACK
+
+	save("main.cpp");
+}
+
+
+****************************
+Fri Apr 17 16:36:12 2020
+****************************
+
+
+
+
+
+****************************
+Fri Apr 17 17:17:34 2020
+****************************
+
+
+
+
+
+****************************
+Fri Apr 17 17:18:21 2020
+****************************
+
+
