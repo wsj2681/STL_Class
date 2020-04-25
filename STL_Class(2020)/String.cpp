@@ -12,7 +12,7 @@
 #include "String.h"
 
 // 관찰메시지를 출력하려면 주석을 제거할 것
-#define 관찰
+//#define 관찰
 
 String::String( ) {
 #ifdef 관찰
@@ -122,5 +122,17 @@ std::ostream& operator<<( std::ostream& os, const String& s )
 	//		os << s[i];
 	os.write( s.p, s.len );
 	return os;
+}
+
+//2020 4.21 추가
+bool String::operator==(const String& rhs)const noexcept {
+	if (len == rhs.len) {
+		for (int i = 0; i < len; ++i) {
+			if (p[i] != rhs.p[i])
+				return false;
+		}
+		return true;
+	}
+	return false;
 }
 

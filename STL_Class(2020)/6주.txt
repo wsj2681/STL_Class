@@ -1,0 +1,202 @@
+1.
+#include <iostream>
+#include <iterator>
+#include <fstream>
+#include <string>
+#include <vector>
+#include "save.h"
+
+using namespace std;
+
+string file{ "STL Wiki.txt"s };
+string out_file{ "STL Wiki e제거.txt"s };
+
+int main()
+{
+	// file 읽기
+	ifstream in(file);
+	ofstream out(out_file);
+
+	vector<char> str = { istreambuf_iterator<char>(in),istreambuf_iterator<char>() };
+
+	str.erase(remove_if(str.begin(), str.end(), [](char a) {return a == 'e'; }),str.end());
+
+	for (char a : str)
+		out << a;
+	save("main.cpp");
+}
+
+2.
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <list>
+#include <iterator>
+#include <algorithm>
+#include "String.h"
+#include "save.h"
+
+using namespace std;
+
+string file{ "STL Wiki.txt"s };
+int main()
+{
+	// file 읽기
+	ifstream in(file);
+
+	vector<string> v = { istream_iterator<string>(in),istream_iterator<string>() };
+
+	cout << size(v);
+
+	save("main.cpp");
+}
+3.
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <list>
+#include <iterator>
+#include <algorithm>
+#include "String.h"
+#include "save.h"
+
+using namespace std;
+
+string file{ "STL Wiki.txt"s };
+
+int main()
+{
+	// file 읽기
+	ifstream in(file);
+
+	vector<string> v = { istream_iterator<string>(in),istream_iterator<string>() };
+
+	for (string a : v) {
+		reverse(a.begin(), a.end());
+		cout << a << ' ';
+	}
+
+	save("main.cpp");
+}
+4.
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <list>
+#include <iterator>
+#include <algorithm>
+#include "String.h"
+#include "save.h"
+
+using namespace std;
+
+string file{ "STL Wiki.txt"s };
+
+int main()
+{
+	// file 읽기
+	ifstream in(file);
+
+	vector<string> v = { istream_iterator<string>(in),istream_iterator<string>() };
+
+	sort(v.begin(), v.end(), [](const string& a, const string& b) {
+		return a < b;
+		});
+
+	for (const string& a : v)
+		cout << a << ' ';
+}
+5.
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <list>
+#include <iterator>
+#include <algorithm>
+#include "String.h"
+#include "save.h"
+
+using namespace std;
+
+string file{ "STL Wiki.txt"s };
+
+int main()
+{
+	// file 읽기
+	ifstream in(file);
+
+	vector<string> v = { istream_iterator<string>(in),istream_iterator<string>() };
+
+	sort(v.begin(), v.end(), [](const string& a, const string& b) {
+		return a.length() < b.length();
+		});
+
+	for (const string& a : v)
+		cout << a << ' ';
+}
+6.
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <list>
+#include <iterator>
+#include <algorithm>
+#include "String.h"
+#include "save.h"
+
+using namespace std;
+
+string file{ "STL Wiki.txt"s };
+
+int main()
+{
+	// file 읽기
+	ifstream in(file);
+
+	vector<string> v = { istream_iterator<string>(in),istream_iterator<string>() };
+
+	int the = count_if(v.begin(), v.end(), [](const string& a) {return a == "the"; });
+
+	cout << the;
+}
+7.
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <list>
+#include <iterator>
+#include <algorithm>
+#include "String.h"
+#include "save.h"
+
+using namespace std;
+
+string file{ "STL Wiki.txt"s };
+string out_file{ "STL Wiki에서 5글자로 된 단어.txt"s };
+int main()
+{
+	// file 읽기
+	ifstream in(file);
+	
+	ofstream out(out_file);
+
+	vector<string> v = { istream_iterator<string>(in),istream_iterator<string>() };
+	
+	int cnt = 0;
+	for (const string& a : v) {
+		
+		if (a.length() == 5) {
+			out << a << ' ';
+			cnt++;
+		if (cnt % 12 == 0)
+			out << endl;
+		}
+	}
+	save("main.cpp");
+}

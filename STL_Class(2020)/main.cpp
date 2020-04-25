@@ -1,24 +1,34 @@
 #include <iostream>
+#include <fstream>
+#include <string>
 #include <vector>
+#include <list>
+#include <iterator>
 #include <algorithm>
 #include "String.h"
+#include "save.h"
+
 using namespace std;
+
+string file{ "STL Wiki.txt"s };
+string out_file{ "STL Wiki 역순.txt"s };
+
 int main()
 {
-	vector<String> v;
-	cout << "vector v의 주소: " << &v << endl;
-	v.reserve(4);
-	v.emplace_back("일본");
-	v.emplace_back("코로나");
-	v.emplace_back("신규확진");
-	v.emplace_back("700명");
-	cout << "------------------" << endl;
-	cout << "원소를 추가하기 전" << endl;
+	// file 읽기
+	ifstream in(file);
+
+	vector<char> v = { istreambuf_iterator<char>(in),istreambuf_iterator<char>() };
+	reverse(v.begin(), v.end());
+
+	for (auto a : v)
+		cout << a;
+
+	//vector<char> str;
+	//for (int i = 0; i < 2000; ++i) {
+
+	//	if(v[i] == ' ')
+	//		
+	//}
 	
-	// v를 사용하여 원하는 일을 할 만큼했다. 그런데 원소가 한 개 더 필요하다.
-	// 아래와 같이 원소를 추가하면 어떤 일이 일어날까?
-	v.emplace_back("PANDEMIC");
-	cout << "원소를 추가한 후" << endl;
-	cout << "------------------" << endl;
-	cout << "vector v의 주소: " << &v << endl;
 }
