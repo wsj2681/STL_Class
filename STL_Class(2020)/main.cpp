@@ -1,21 +1,15 @@
 #include <iostream>
 #include <string>
 #include <random>
-#include <filesystem>
 #include <algorithm>
+#include <filesystem>
 #include <fstream>
-#include <functional>
 #include <iterator>
-#include <list>
-
-// TODO: SUWON
-#include <map>
-std::map<std::string, int> a;
-
+#include <functional>
 using namespace std;
 
-random_device rd;
-default_random_engine dre{ rd() };
+//random_device rd;
+default_random_engine dre;//{ rd() };
 
 // id Length 3~6 charactor
 uniform_int_distribution<> idlength(3, 6);
@@ -24,8 +18,8 @@ uniform_int_distribution<> idchar('a', 'z');
 // 0 : BreakOut, 1 : WorldChampionShip
 normal_distribution<> playgametype(0, 1);
 
-uniform_int_distribution<long long> ndbreak(0, 2'905'887'026);
-uniform_int_distribution<int> ndworld(0, 1'112'670'384);
+normal_distribution<> ndbreak(0, 2'905'887'026);
+normal_distribution<> ndworld(0, 1'112'670'384);
 
 //Player Count 10'0000
 constexpr int PLAYERS_COUNT{ 10'0000 };
@@ -111,13 +105,13 @@ public:
 };
 
 ostream& operator<<(ostream& os, const Player& p) {
-	os << p.id << " " << p.breakout << " " << p.BreakRank 
-		       << " " << p.worldchampion << " " << p.worldRank;
+	os << p.id << " " << p.breakout << " " << p.BreakRank
+		<< " " << p.worldchampion << " " << p.worldRank;
 	return os;
 }
 
 istream& operator>>(istream& is, Player& p) {
-	is >> p.id >> p.breakout >> p.worldchampion;
+	is >> p.id >> p.breakout >> p.BreakRank >> p.worldchampion >> p.worldRank;
 	return is;
 }
 
@@ -128,20 +122,10 @@ void SaveGame(const vector<Player>&);
 
 
 int main() {
-	// TODO:
-	a.insert({ "이수원", 21 });
-	const auto& i = a.find("이수원");
-	a.at("이수원");
-	a["우성준"];
-
-	if (i != a.end())
-	{
-		const int age = i->second;
-	}
 
 	ifstream in("PlayerData.txt", ios::binary);
-
 	vector<Player> players;
+	
 	players.reserve(PLAYERS_COUNT);
 
 	//Load Data File
@@ -207,8 +191,13 @@ int main() {
 		for (const auto& i : foundWorld)
 			i.ShowWorldChampionShip();
 	}
-
+	/*for (const auto& i : players)
+		i.showBreakOut();*/
 	SaveGame(players);
+	
+	size_t filesize = filesystem::file_size("PlayerData.txt");
+
+	cout << filesize << endl;
 }
 
 void MakeData(vector<Player>& players) {
@@ -234,6 +223,16 @@ void SaveGame(const vector<Player>& players) {
 
 void RankingSet(vector<Player>& players) {
 
+	//WorldChampionShip Ranking Set
+	{
+		sort(players.begin(), players.end(), [](const Player& a, const Player& b) {
+			return a.GetWorldChampionScore() > b.GetWorldChampionScore();
+		});
+
+		for (int i = 0; i < players.size(); ++i)
+			players[i].SetWorldRank(i + 1);
+	}
+
 	//BreakOut Ranking Set
 	{
 		sort(players.begin(), players.end(), [](const Player& a, const Player& b) {
@@ -244,13 +243,5 @@ void RankingSet(vector<Player>& players) {
 			players[i].SetBreakOutRank(i + 1);
 	}
 
-	//WorldChampionShip Ranking Set
-	{
-		sort(players.begin(), players.end(), [](const Player& a, const Player& b) {
-			return a.GetWorldChampionScore() > b.GetWorldChampionScore();
-		});
 
-		for (int i = 0; i < players.size(); ++i)
-			players[i].SetWorldRank(i + 1);
-	}
 }

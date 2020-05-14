@@ -1,2 +1,2 @@
-PlatformToolSet=v142:VCToolArchitecture=Native32Bit:VCToolsVersion=14.25.28610:TargetPlatformVersion=10.0.18362.0:
-Release|x64|C:\Users\wsj26\Desktop\STL_Class\STL_Class(2020)\|
+#TargetFrameworkVersion=v4.0:PlatformToolSet=v142:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=10.0
+Release|x64|C:\Users\wsj26\OneDrive\바탕 화면\STL_Class\STL_Class(2020)\|
