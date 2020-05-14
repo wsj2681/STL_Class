@@ -8,6 +8,10 @@
 #include <iterator>
 #include <list>
 
+// TODO: SUWON
+#include <map>
+std::map<std::string, int> a;
+
 using namespace std;
 
 random_device rd;
@@ -20,11 +24,11 @@ uniform_int_distribution<> idchar('a', 'z');
 // 0 : BreakOut, 1 : WorldChampionShip
 normal_distribution<> playgametype(0, 1);
 
-normal_distribution<> ndbreak(0, 29'0588'7026);
-normal_distribution<> ndworld(0, 11'1267'0384);
+uniform_int_distribution<long long> ndbreak(0, 2'905'887'026);
+uniform_int_distribution<int> ndworld(0, 1'112'670'384);
 
 //Player Count 10'0000
-constexpr int PlayersCount{ 10'0000 };
+constexpr int PLAYERS_COUNT{ 10'0000 };
 
 class Player {
 	string id{};
@@ -46,8 +50,8 @@ public:
 		for (int i = 0; i < len; ++i) {
 			id += idchar(dre);
 		}
-		breakout = static_cast<unsigned int>(round(ndbreak(dre)));
-		worldchampion = static_cast<unsigned int>(round(ndworld(dre)));
+		breakout = static_cast<unsigned int>(roundl(ndbreak(dre)));
+		worldchampion = static_cast<unsigned int>(roundl(ndworld(dre)));
 	}
 	~Player() {};
 
@@ -73,13 +77,20 @@ public:
 	unsigned int GetWorldChampionScore() const {
 		return worldchampion;
 	}
+	int GetBreakOutRank()const {
+		return BreakRank;
+	}
+	int GetWorldRank()const {
+		return worldRank;
+	}
+
 	void SetBreakOutRank(int rank) {
 		BreakRank = rank;
-		BreakDist = static_cast<float>(rank) / PlayersCount * 100.f;
+		BreakDist = static_cast<float>(rank) / PLAYERS_COUNT * 100.f;
 	}
 	void SetWorldRank(int rank) {
 		worldRank = rank;
-		WorldDist = static_cast<float>(rank) / PlayersCount * 100.f;
+		WorldDist = static_cast<float>(rank) / PLAYERS_COUNT * 100.f;
 	}
 
 	void showBreakOut() const {
@@ -117,10 +128,23 @@ void SaveGame(const vector<Player>&);
 
 
 int main() {
+	// TODO:
+	a.insert({ "이수원", 21 });
+	const auto& i = a.find("이수원");
+	a.at("이수원");
+	a["우성준"];
+
+	if (i != a.end())
+	{
+		const int age = i->second;
+	}
+
 	ifstream in("PlayerData.txt", ios::binary);
 
 	vector<Player> players;
-	players.reserve(PlayersCount);
+	players.reserve(PLAYERS_COUNT);
+
+	//Load Data File
 	players = { istream_iterator<Player>(in), istream_iterator<Player>() };
 
 	//Can't found
@@ -134,25 +158,61 @@ int main() {
 	//Player Ranking Set
 	RankingSet(players);
 
+	//Find Player
+	string input{};
+	cin >> input;
 
-	////Find Player
-	//string input{};
-	//cin >> input;
+	//Search BreakOut Rank
+	{
+		vector<Player> foundBreakOut;
 
-	//vector<Player>::iterator find = find_if(players.begin(), players.end(), [input](const Player& p) {
-	//	return input == p.GetId();
-	//});
+		vector<Player>::iterator findB = find_if(players.begin(), players.end(), [input](const Player& p) {
+			return input == p.GetId();
+		});
 
-	//cout << *find << endl;
+		foundBreakOut.emplace_back(*find_if(players.begin(), players.end(), [findB](const Player& p) {
+			return findB->GetBreakOutRank() - 1 == p.GetBreakOutRank();
+		}));
 
-	for (const auto& i : players)
-		i.showBreakOut();
+		foundBreakOut.emplace_back(*findB);
+
+		foundBreakOut.emplace_back(*find_if(players.begin(), players.end(), [findB](const Player& p) {
+			return findB->GetBreakOutRank() + 1 == p.GetBreakOutRank();
+		}));
+
+		for (const auto& i : foundBreakOut)
+			i.showBreakOut();
+	}
+
+	cout << endl;
+
+	//Search WorldChampionShip Rank
+	{
+		vector<Player> foundWorld;
+
+		vector<Player>::iterator findW = find_if(players.begin(), players.end(), [input](const Player& p) {
+			return input == p.GetId();
+		});
+
+		foundWorld.emplace_back(*find_if(players.begin(), players.end(), [findW](const Player& p) {
+			return findW->GetWorldRank() - 1 == p.GetWorldRank();
+		}));
+
+		foundWorld.emplace_back(*findW);
+
+		foundWorld.emplace_back(*find_if(players.begin(), players.end(), [findW](const Player& p) {
+			return findW->GetWorldRank() + 1 == p.GetWorldRank();
+		}));
+
+		for (const auto& i : foundWorld)
+			i.ShowWorldChampionShip();
+	}
 
 	SaveGame(players);
 }
 
 void MakeData(vector<Player>& players) {
-	for (int i = 0; i < PlayersCount; ++i)
+	for (int i = 0; i < PLAYERS_COUNT; ++i)
 		players.emplace_back(Player());
 }
 
