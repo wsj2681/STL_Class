@@ -1,5 +1,136 @@
 ﻿  main.cpp
-  save.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3411,1): error C2679: 이항 '+': 오른쪽 피연산자로 'ptrdiff_t' 형식을 사용하는 연산자가 없거나 허용되는 변환이 없습니다.
+C:\Users\wsj26\Desktop\STL_Class\STL_Class(2020)\String.h(40,12): message : 'ptrdiff_t String_Iterator::operator +(const String_Iterator &) const'일 수 있습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3411,1): message : 인수 목록 '(String::iterator, ptrdiff_t)'을(를) 일치시키는 동안
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3480): message : 컴파일되는 함수 템플릿 인스턴스화 'std::pair<String::iterator,String::iterator> std::_Partition_by_median_guess_unchecked<String::iterator,std::less<void>>(String::iterator,String::iterator,std::less<void>)'에 대한 참조를 확인하세요.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3506): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::_Sort_unchecked<String::iterator,std::less<void>>(String::iterator,String::iterator,__int64,std::less<void>)'에 대한 참조를 확인하세요.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3511): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::sort<String::iterator,std::less<void>>(const String::iterator,const String::iterator,std::less<void>)'에 대한 참조를 확인하세요.
+C:\Users\wsj26\Desktop\STL_Class\STL_Class(2020)\main.cpp(9): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::sort<String::iterator>(const String::iterator,const String::iterator)'에 대한 참조를 확인하세요.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3412,1): error C2679: 이항 '-': 오른쪽 피연산자로 'int' 형식을 사용하는 연산자가 없거나 허용되는 변환이 없습니다.
+C:\Users\wsj26\Desktop\STL_Class\STL_Class(2020)\String.h(36,12): message : 'ptrdiff_t String_Iterator::operator -(const String_Iterator &) const'일 수 있습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3412,1): message : 인수 목록 '(String::iterator, int)'을(를) 일치시키는 동안
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3412,5): error C2672: '_Guess_median_unchecked': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3412,1): error C2780: 'void std::_Guess_median_unchecked(_RanIt,_RanIt,_RanIt,_Pr)': 인수가 4개 있어야 하는데 3개를 사용했습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3393): message : 'std::_Guess_median_unchecked' 선언을 참조하십시오.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3414,1): error C2679: 이항 '+': 오른쪽 피연산자로 'int' 형식을 사용하는 연산자가 없거나 허용되는 변환이 없습니다.
+C:\Users\wsj26\Desktop\STL_Class\STL_Class(2020)\String.h(40,12): message : 'ptrdiff_t String_Iterator::operator +(const String_Iterator &) const'일 수 있습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3414,1): message : 인수 목록 '(_RanIt, int)'을(를) 일치시키는 동안
+          with
+          [
+              _RanIt=String::iterator
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3416,1): error C2679: 이항 '-': 오른쪽 피연산자로 'int' 형식을 사용하는 연산자가 없거나 허용되는 변환이 없습니다.
+C:\Users\wsj26\Desktop\STL_Class\STL_Class(2020)\String.h(36,12): message : 'ptrdiff_t String_Iterator::operator -(const String_Iterator &) const'일 수 있습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3416,1): message : 인수 목록 '(_RanIt, int)'을(를) 일치시키는 동안
+          with
+          [
+              _RanIt=String::iterator
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3416,33): error C2672: '_Debug_lt_pred': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3416,1): error C2780: 'bool std::_Debug_lt_pred(_Pr &&,_Ty1 &&,_Ty2 &&) noexcept(<expr>)': 인수가 3개 있어야 하는데 2개를 사용했습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\xutility(1479): message : 'std::_Debug_lt_pred' 선언을 참조하십시오.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3416,111): error C2088: '-': class에 맞지 않습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3416,85): error C2672: 'operator __surrogate_func': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3416,1): error C2780: 'unknown-type std::less<void>::operator ()(_Ty1 &&,_Ty2 &&) noexcept(<expr>) const': 인수가 2개 있어야 하는데 1개를 사용했습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\xstddef(239): message : 'std::less<void>::operator ()' 선언을 참조하십시오.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3417,9): error C2675: 단항 '--': '_RanIt'이(가) 이 연산자를 정의하지 않거나 미리 정의된 연산자에 허용되는 형식으로의 변환을 정의하지 않습니다.
+          with
+          [
+              _RanIt=String::iterator
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3440,33): error C2675: 단항 '--': '_RanIt'이(가) 이 연산자를 정의하지 않거나 미리 정의된 연산자에 허용되는 형식으로의 변환을 정의하지 않습니다.
+          with
+          [
+              _RanIt=String::iterator
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3441,1): error C2679: 이항 '-': 오른쪽 피연산자로 'int' 형식을 사용하는 연산자가 없거나 허용되는 변환이 없습니다.
+C:\Users\wsj26\Desktop\STL_Class\STL_Class(2020)\String.h(36,12): message : 'ptrdiff_t String_Iterator::operator -(const String_Iterator &) const'일 수 있습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3441,1): message : 인수 목록 '(_RanIt, int)'을(를) 일치시키는 동안
+          with
+          [
+              _RanIt=String::iterator
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3441,17): error C2672: '_Debug_lt_pred': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3441,1): error C2780: 'bool std::_Debug_lt_pred(_Pr &&,_Ty1 &&,_Ty2 &&) noexcept(<expr>)': 인수가 3개 있어야 하는데 2개를 사용했습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\xutility(1479): message : 'std::_Debug_lt_pred' 선언을 참조하십시오.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3442,1): error C2679: 이항 '-': 오른쪽 피연산자로 'int' 형식을 사용하는 연산자가 없거나 허용되는 변환이 없습니다.
+C:\Users\wsj26\Desktop\STL_Class\STL_Class(2020)\String.h(36,12): message : 'ptrdiff_t String_Iterator::operator -(const String_Iterator &) const'일 수 있습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3442,1): message : 인수 목록 '(_RanIt, int)'을(를) 일치시키는 동안
+          with
+          [
+              _RanIt=String::iterator
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3442,24): error C2672: 'operator __surrogate_func': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3442,1): error C2780: 'unknown-type std::less<void>::operator ()(_Ty1 &&,_Ty2 &&) noexcept(<expr>) const': 인수가 2개 있어야 하는데 1개를 사용했습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\xstddef(239): message : 'std::less<void>::operator ()' 선언을 참조하십시오.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3444,24): error C2675: 단항 '--': '_RanIt'이(가) 이 연산자를 정의하지 않거나 미리 정의된 연산자에 허용되는 형식으로의 변환을 정의하지 않습니다.
+          with
+          [
+              _RanIt=String::iterator
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3444,1): error C2679: 이항 '-': 오른쪽 피연산자로 'int' 형식을 사용하는 연산자가 없거나 허용되는 변환이 없습니다.
+C:\Users\wsj26\Desktop\STL_Class\STL_Class(2020)\String.h(36,12): message : 'ptrdiff_t String_Iterator::operator -(const String_Iterator &) const'일 수 있습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3444,1): message : 인수 목록 '(_RanIt, int)'을(를) 일치시키는 동안
+          with
+          [
+              _RanIt=String::iterator
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3445,1): error C2679: 이항 '-': 오른쪽 피연산자로 'int' 형식을 사용하는 연산자가 없거나 허용되는 변환이 없습니다.
+C:\Users\wsj26\Desktop\STL_Class\STL_Class(2020)\String.h(36,12): message : 'ptrdiff_t String_Iterator::operator -(const String_Iterator &) const'일 수 있습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3445,1): message : 인수 목록 '(_RanIt, int)'을(를) 일치시키는 동안
+          with
+          [
+              _RanIt=String::iterator
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3445,22): error C2672: 'std::iter_swap': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3445,1): error C2780: 'void std::iter_swap(_FwdIt1,_FwdIt2)': 인수가 2개 있어야 하는데 1개를 사용했습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\utility(42): message : 'std::iter_swap' 선언을 참조하십시오.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3463,17): error C2675: 단항 '--': '_RanIt'이(가) 이 연산자를 정의하지 않거나 미리 정의된 연산자에 허용되는 형식으로의 변환을 정의하지 않습니다.
+          with
+          [
+              _RanIt=String::iterator
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3463,29): error C2675: 단항 '--': '_RanIt'이(가) 이 연산자를 정의하지 않거나 미리 정의된 연산자에 허용되는 형식으로의 변환을 정의하지 않습니다.
+          with
+          [
+              _RanIt=String::iterator
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3467,37): error C2675: 단항 '--': '_RanIt'이(가) 이 연산자를 정의하지 않거나 미리 정의된 연산자에 허용되는 형식으로의 변환을 정의하지 않습니다.
+          with
+          [
+              _RanIt=String::iterator
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3467,18): error C2672: 'std::iter_swap': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3467,1): error C2780: 'void std::iter_swap(_FwdIt1,_FwdIt2)': 인수가 2개 있어야 하는데 1개를 사용했습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\utility(42): message : 'std::iter_swap' 선언을 참조하십시오.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3469,37): error C2675: 단항 '--': '_RanIt'이(가) 이 연산자를 정의하지 않거나 미리 정의된 연산자에 허용되는 형식으로의 변환을 정의하지 않습니다.
+          with
+          [
+              _RanIt=String::iterator
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3469,18): error C2672: 'std::iter_swap': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3469,1): error C2780: 'void std::iter_swap(_FwdIt1,_FwdIt2)': 인수가 2개 있어야 하는데 1개를 사용했습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\utility(42): message : 'std::iter_swap' 선언을 참조하십시오.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(2749,60): error C2676: 이항 '[': 'String::iterator'이(가) 이 연산자를 정의하지 않거나 미리 정의된 연산자에 허용되는 형식으로의 변환을 정의하지 않습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3494): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::_Make_heap_unchecked<String::iterator,std::less<void>>(String::iterator,String::iterator,std::less<void>)'에 대한 참조를 확인하세요.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(2749,43): error C2672: 'move': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(2749,1): error C2780: '_DestTy *std::move(_InIt,_InIt,_DestTy (&)[_DestSize])': 인수가 3개 있어야 하는데 1개를 사용했습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\xutility(3951): message : 'std::move' 선언을 참조하십시오.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(2749,1): error C2780: '_OutIt std::move(_InIt,_InIt,_OutIt)': 인수가 3개 있어야 하는데 1개를 사용했습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\xutility(3939): message : 'std::move' 선언을 참조하십시오.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(2833,33): error C2675: 단항 '--': 'String::iterator'이(가) 이 연산자를 정의하지 않거나 미리 정의된 연산자에 허용되는 형식으로의 변환을 정의하지 않습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3495): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::_Sort_heap_unchecked<String::iterator,std::less<void>>(String::iterator,String::iterator,std::less<void>)'에 대한 참조를 확인하세요.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3363,1): error C2106: '=': 왼쪽 피연산자는 l-value이어야 합니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3497): message : 컴파일되는 함수 템플릿 인스턴스화 'String::iterator std::_Insertion_sort_unchecked<String::iterator,std::less<void>>(String::iterator,const String::iterator,std::less<void>)'에 대한 참조를 확인하세요.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3365,47): error C2675: 단항 '--': '_BidIt'이(가) 이 연산자를 정의하지 않거나 미리 정의된 연산자에 허용되는 형식으로의 변환을 정의하지 않습니다.
+          with
+          [
+              _BidIt=String::iterator
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3365,47): error C2672: '_Debug_lt_pred': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3365,1): error C2780: 'bool std::_Debug_lt_pred(_Pr &&,_Ty1 &&,_Ty2 &&) noexcept(<expr>)': 인수가 3개 있어야 하는데 2개를 사용했습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\xutility(1479): message : 'std::_Debug_lt_pred' 선언을 참조하십시오.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3366,1): error C2106: '=': 왼쪽 피연산자는 l-value이어야 합니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm(3369,1): error C2106: '=': 왼쪽 피연산자는 l-value이어야 합니다.
   String.cpp
   코드를 생성하고 있습니다...
-  STL_Class(2020).vcxproj -> C:\Users\wsj26\Desktop\STL_Class\STL_Class(2020)\x64\Debug\STL_Class(2020).exe

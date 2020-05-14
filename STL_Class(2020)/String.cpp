@@ -136,3 +136,9 @@ bool String::operator==(const String& rhs)const noexcept {
 	return false;
 }
 
+// 2020. 4. 25 Ãß°¡
+String::iterator String::begin() { return p; }
+String::iterator String::end() { return iterator(p + len); }
+
+String::reverse_iterator String::rbegin() { return reverse_iterator(p + len); }
+String::reverse_iterator String::rend() { return reverse_iterator(p); }
