@@ -6,6 +6,7 @@
 #include <fstream>
 #include <iterator>
 #include <functional>
+#include <map>
 using namespace std;
 
 //random_device rd;
@@ -125,6 +126,7 @@ istream& operator>>(istream& is, Player& p) {
 	return is;
 }
 
+void Mapping(const vector<Player>& players, map<string, Player>& mapplayers);
 void MakeData(vector<Player>&);
 void PlayGame(vector<Player>&);
 void RankingSet(vector<Player>&);
@@ -134,8 +136,8 @@ int main() {
 
 	ifstream in(filename, ios::binary);
 	vector<Player> players;
-
 	players.reserve(PLAYERS_COUNT);
+
 
 	//Can't found
 	if (!in.is_open()) {
@@ -146,6 +148,10 @@ int main() {
 
 	//Load Data File
 	players = { istream_iterator<Player>(in), istream_iterator<Player>() };
+
+	map<string, Player> mapplayers;
+	
+	Mapping(players, mapplayers);
 
 	//Over one Season
 	PlayGame(players);
@@ -180,8 +186,14 @@ int main() {
 		for (const auto& i : foundBreakOut)
 			i.showBreakOut();
 	}
+	//TODO:인덱스 오류
+	//while (true)
+	//{
+	//	auto p = mapplayers.find(input);
+	//	if (p != mapplayers.find.end())
+	//		p->second.showBreakOut();
 
-	cout << endl;
+	//}
 
 	//Search WorldChampionShip Rank
 	{
@@ -214,6 +226,10 @@ int main() {
 	cout << filesize << endl;
 }
 
+void Mapping(const vector<Player>& players, map<string, Player>& mapplayers) {
+	
+}
+
 void MakeData(vector<Player>& players) {
 	for (int i = 0; i < PLAYERS_COUNT; ++i)
 		players.emplace_back(Player());
@@ -229,6 +245,7 @@ void PlayGame(vector<Player>& players) {
 			i.PlayWorldChampionShip();
 }
 
+//TODO: write()함수 사용해서 파일로 보내기
 void SaveGame(const vector<Player>& players) {
 	ofstream out(filename, ios::binary);
 
@@ -258,6 +275,4 @@ void RankingSet(vector<Player>& players) {
 		for (int i = 0; i < players.size(); ++i)
 			players[i].SetBreakOutRank(i + 1);
 	}
-
-
 }
