@@ -24,6 +24,8 @@ normal_distribution<> ndworld(0, 1'112'670'384);
 //Player Count 10'0000
 constexpr int PLAYERS_COUNT{ 10'0000 };
 
+string filename{ "PlayerData.txt" };
+
 class Player {
 	string id{};
 
@@ -44,14 +46,16 @@ public:
 		for (int i = 0; i < len; ++i) {
 			id += idchar(dre);
 		}
-		breakout = static_cast<unsigned int>(roundl(ndbreak(dre)));
+		breakout	  = static_cast<unsigned int>(roundl(ndbreak(dre)));
 		worldchampion = static_cast<unsigned int>(roundl(ndworld(dre)));
 	}
+
 	~Player() {};
 
 	string GetId()const {
 		return id;
 	}
+
 	void PlayBreakOut() {
 		unsigned int score =
 			static_cast<unsigned int>(round(ndbreak(dre)));
@@ -59,21 +63,27 @@ public:
 		if (score >= breakout)
 			breakout = score;
 	}
+
 	void PlayWorldChampionShip() {
 		unsigned int score =
 			static_cast<unsigned int>(round(ndworld(dre)));
+
 		if (score >= worldchampion)
 			worldchampion = score;
 	}
+
 	unsigned int GetBreakOutScore() const {
 		return breakout;
 	}
+
 	unsigned int GetWorldChampionScore() const {
 		return worldchampion;
 	}
+
 	int GetBreakOutRank()const {
 		return BreakRank;
 	}
+
 	int GetWorldRank()const {
 		return worldRank;
 	}
@@ -89,14 +99,14 @@ public:
 
 	void showBreakOut() const {
 		cout << id
-			<< "\t떼탈출 - " << "점수 -\t" << breakout 
+			<< "\t점수 -\t" << breakout 
 			<< " 순위- " << BreakRank 
 			<< "\t상위 " << BreakDist << "%" << endl;
 
 	}
 	void ShowWorldChampionShip()const {
 		cout << id
-			<< "\t월드챔피언쉽 - " << " 점수 -\t" << worldchampion 
+			<< "\t점수 -\t" << worldchampion 
 			<< " 순위- " << worldRank 
 			<< "\t상위 " << WorldDist << "%" << endl;
 	}
@@ -120,21 +130,22 @@ void PlayGame(vector<Player>&);
 void RankingSet(vector<Player>&);
 void SaveGame(const vector<Player>&);
 
-
 int main() {
 
-	ifstream in("PlayerData.txt", ios::binary);
+	ifstream in(filename, ios::binary);
 	vector<Player> players;
-	
+
 	players.reserve(PLAYERS_COUNT);
+
+	//Can't found
+	if (!in.is_open()) {
+		//Initializing File
+		cout << "초기 데이터 생성" << endl << endl;
+		MakeData(players);
+	}
 
 	//Load Data File
 	players = { istream_iterator<Player>(in), istream_iterator<Player>() };
-
-	//Can't found
-	if (!in)
-		//Initializing File
-		MakeData(players);
 
 	//Over one Season
 	PlayGame(players);
@@ -144,6 +155,7 @@ int main() {
 
 	//Find Player
 	string input{};
+	cout << "찾고싶은 id 를 입력하세요. : ";
 	cin >> input;
 
 	//Search BreakOut Rank
@@ -164,6 +176,7 @@ int main() {
 			return findB->GetBreakOutRank() + 1 == p.GetBreakOutRank();
 		}));
 
+		cout << endl << "\t\t떼탈출" << endl << endl;
 		for (const auto& i : foundBreakOut)
 			i.showBreakOut();
 	}
@@ -188,14 +201,15 @@ int main() {
 			return findW->GetWorldRank() + 1 == p.GetWorldRank();
 		}));
 
+		cout << endl << "\t\t월드챔피언쉽" << endl << endl;
 		for (const auto& i : foundWorld)
 			i.ShowWorldChampionShip();
 	}
 	/*for (const auto& i : players)
 		i.showBreakOut();*/
 	SaveGame(players);
-	
-	size_t filesize = filesystem::file_size("PlayerData.txt");
+
+	size_t filesize = filesystem::file_size(filename);
 
 	cout << filesize << endl;
 }
@@ -203,6 +217,8 @@ int main() {
 void MakeData(vector<Player>& players) {
 	for (int i = 0; i < PLAYERS_COUNT; ++i)
 		players.emplace_back(Player());
+
+	SaveGame(players);
 }
 
 void PlayGame(vector<Player>& players) {
@@ -214,11 +230,11 @@ void PlayGame(vector<Player>& players) {
 }
 
 void SaveGame(const vector<Player>& players) {
-	ofstream out("PlayerData.txt", ios::binary);
+	ofstream out(filename, ios::binary);
 
 	for (const auto& i : players)
 		out << i << endl;
-
+	cout << filename << " 저장 완료" << endl << endl;
 }
 
 void RankingSet(vector<Player>& players) {
